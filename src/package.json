@@ -5,14 +5,14 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
+    "start": "node app.js -p 3000",
     "install": "node preset.js",
     "lint": "eslint *.js"
   },
   "author": "Yosuke HASEGAWA",
   "license": "MIT",
   "dependencies": {
-    "libxmljs": "^0.18.7",
-    "sqlite3": "^3.1.8"
+    "libxmljs": "^0.19.7",
+    "sqlite3": "^5.0.2"
   }
 }

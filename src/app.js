@@ -113,6 +113,7 @@ function init (configFile) {
   sqlite3.verbose()
   db = new sqlite3.Database(`${__dirname}/libra.db`, sqlite3.OPEN_READONLY, (err) => {
     if (err) {
+      console.log(`${__dirname}/libra.db`);
       throw new Error(err)
     }
   })
@@ -236,8 +237,12 @@ let handlers = [
       let user = conn.session.get('user')
       let uid = conn.session.get('id')
       let htmlParams = {}
-      let params = qs.parse(conn.location.search.substring(1))
-      let q = params.q || ''
+      let q = '';
+      let params = {d: null}
+      if(conn.location.search) {
+         params = qs.parse(conn.location.search.substring(1))
+         q = params.q || ''
+      }
       let sql
 
       if (user === undefined) {
